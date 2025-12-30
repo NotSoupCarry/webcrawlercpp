@@ -13,7 +13,7 @@ public:
     HttpClient();
     ~HttpClient();
 
-    std::string downloadPage(const std::string& url);
+    static std::string downloadPage(const std::string& url);
 };
 
 
