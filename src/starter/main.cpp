@@ -11,8 +11,7 @@ int main() {
     cout << "=== WebCrawler ===" << endl;
     // string startUrl = "https://www.repubblica.it/";
     string startUrl;
-    cout<< "enter the starting url: " ;
-    cin >> startUrl;
+    cout<< "enter the starting url: "; cin >> startUrl;
 
     int maxDepth = 10;
 
