@@ -1,0 +1,104 @@
+# ===========================
+# CLion / IntelliJ IDEA
+# ===========================
+.idea/
+cmake-build-*/
+.DS_Store
+
+# ===========================
+# CMake
+# ===========================
+build/
+cmake-build-debug/
+cmake-build-release/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+!CMakeLists.txt
+
+# ===========================
+# Compiling C++
+# ===========================
+*.exe
+*.out
+*.o
+*.obj
+*.a
+*.so
+*.dll
+*.dylib
+*.lib
+
+# ===========================
+# Debug / Profiling
+# ===========================
+*.pdb
+*.ilk
+*.dSYM/
+*.gch
+*.pch
+
+# ===========================
+# Backup / temp
+# ===========================
+*~
+*.swp
+*.swo
+*.bak
+*.tmp
+*.log
+
+# ===========================
+# OS
+# ===========================
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+.directory
+
+# ===========================
+# Visual Studio
+# ===========================
+.vs/
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln
+
+# ===========================
+# Dipendenceis
+# ===========================
+lib/
+libs/
+external/
+vendor/
+*.a
+*.so
+
+# ===========================
+# Outputs
+# ===========================
+output/
+data/
+downloads/
+crawled_pages/
+*.html
+*.json
+*.csv
+
+# ===========================
+# others
+# ===========================
+.vscode/
+*.code-workspace
