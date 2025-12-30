@@ -24,6 +24,6 @@ int main() {
     cout << "\n=== VISITED URL  ===" << endl << endl;
     int count = 1;
     for (const auto& url : crawler.getVisitedUrls()) {
-        cout << count++ << ". " << url << endl;
+        cout << count++ << ". " << url << endl << endl;
     }
 }
