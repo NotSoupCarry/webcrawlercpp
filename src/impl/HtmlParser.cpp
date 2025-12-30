@@ -63,14 +63,12 @@ size_t HtmlParser::findNextAnchor(const std::string& html, size_t startPos) {
 }
 
 std::string HtmlParser::extractHref(const std::string& html, size_t anchorPos) {
-    // Trova la fine del tag <a ...>
     size_t tagEnd = html.find('>', anchorPos);
 
-    if (tagEnd == std::string::npos) {
+    if (tagEnd == std::string::npos)
         return "";
-    }
 
-    // Cerca href= all'interno del tag
+
     std::string tag = html.substr(anchorPos, tagEnd - anchorPos);
 
     size_t hrefPos = tag.find("href");
@@ -80,9 +78,9 @@ std::string HtmlParser::extractHref(const std::string& html, size_t anchorPos) {
         std::transform(tagLower.begin(), tagLower.end(), tagLower.begin(), ::tolower);
         hrefPos = tagLower.find("href");
 
-        if (hrefPos == std::string::npos) {
+        if (hrefPos == std::string::npos)
             return "";
-        }
+
     }
 
     // skip "href"
@@ -108,9 +106,9 @@ std::string HtmlParser::extractHref(const std::string& html, size_t anchorPos) {
         urlEnd = tag.find_first_of(" \t\n>", urlStart);
     }
 
-    if (urlEnd == std::string::npos) {
+    if (urlEnd == std::string::npos) 
         urlEnd = tag.size();
-    }
+
 
     return tag.substr(urlStart, urlEnd - urlStart);
 }
