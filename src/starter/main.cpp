@@ -13,7 +13,7 @@ int main() {
     string startUrl;
     cout<< "enter the starting url: "; cin >> startUrl;
 
-    int maxDepth = 10;
+    int maxDepth = 2;
 
     cout << "  URL: " << startUrl << endl;
     cout << "  Max Depth: " << maxDepth << endl << endl;
