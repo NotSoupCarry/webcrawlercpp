@@ -25,13 +25,13 @@ void WebCrawler::crawl(const std::string& startUrl) {
 }
 
 void WebCrawler::crawlRecursive(const std::string& url, int depth) {
-    if (depth > maxDepth) {
+    if (depth > maxDepth)
         return;
-    }
 
-    if (visitedUrls.count(url)) {
+
+    if (visitedUrls.count(url))
         return;
-    }
+
 
     if (!shouldCrawl(url))
         return;
