@@ -9,7 +9,7 @@ using namespace std;
 
 int main() {
     cout << "=== WebCrawler ===" << endl;
-    string startUrl = "https://www.repubblica.it/";
+    string startUrl = "https://www.archlinux.org/";
     // string startUrl;
     // cout<< "enter the starting url: "; cin >> startUrl;
 
