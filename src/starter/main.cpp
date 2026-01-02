@@ -9,7 +9,6 @@ using namespace std;
 
 int main() {
     cout << "=== WebCrawler ===" << endl;
-    string startUrl = "https://www.youtube.com/";
     // string startUrl;
     // cout<< "enter the starting url: "; cin >> startUrl;
     // int maxDepth;
@@ -17,6 +16,8 @@ int main() {
     // int maxLinks;
     // cout<< "enter the Links per page limit: "; cin >> maxLinks;
 
+    // for testing
+    string startUrl = "https://www.youtube.com/";
     int maxDepth = 2;
     int maxLinks = 2;
 
