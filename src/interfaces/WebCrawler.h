@@ -26,10 +26,8 @@ private:
     int maxDepth;
     int currentDepth;
 
-    // Controlla se un URL può essere crawlato
     bool shouldCrawl(const std::string &url);
 
-    // Crawl ricorsivo con limite di profondità
     void crawlRecursive(const std::string &url, int depth);
 
 public:
@@ -41,4 +39,5 @@ public:
     void setAllowedDomain(const std::string &domain);
 };
 
-#endif //WEBCRAWLER_WEBCRAWLER_H
+#endif
+//WEBCRAWLER_WEBCRAWLER_H

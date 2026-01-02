@@ -89,7 +89,7 @@ vendor/
 # ===========================
 # Outputs
 # ===========================
-output/
+outputs/
 data/
 downloads/
 crawled_pages/

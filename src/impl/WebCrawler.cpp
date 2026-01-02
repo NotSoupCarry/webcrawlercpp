@@ -71,17 +71,14 @@ void WebCrawler::crawlRecursive(const std::string& url, int depth) {
 }
 
 bool WebCrawler::shouldCrawl(const std::string& url) {
-    if (!urlNormalizer.isValid(url)) {
+    if (!urlNormalizer.isValid(url))
         return false;
-    }
 
-    if (visitedUrls.count(url)) {
+    if (visitedUrls.count(url))
         return false;
-    }
 
     if (std::string domain = urlNormalizer.getDomain(url); domain != allowedDomain)
         return false;
-
 
     return true;
 }
