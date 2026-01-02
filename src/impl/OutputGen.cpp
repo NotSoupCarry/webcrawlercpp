@@ -63,7 +63,7 @@ void OutputGen::writeHeader(const std::string& startUrl, int maxDepth, int maxLi
     tm* ltm = localtime(&now);
 
     std::ostringstream oss;
-    oss << std::put_time(ltm, "%Y-%m-%d %H:%M:%S");
+    oss << std::put_time(ltm, "%Y/%m/%d %H:%M:%S");
 
     writeLine("========================================");
     writeLine("       WEB CRAWLER - CRAWLING LOG       ");
