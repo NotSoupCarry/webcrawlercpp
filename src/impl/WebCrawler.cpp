@@ -3,10 +3,11 @@
 //
 
 #include "../interfaces/WebCrawler.h"
-#include "../interfaces/WebCrawler.h"
 #include <iostream>
 #include <thread>
 #include <chrono>
+#include <sstream>
+#include <iomanip>
 
 WebCrawler::WebCrawler(int maxDepth) : maxDepth(maxDepth), currentDepth(0) {std::cout << "WebCrawler created, Max depth: " << maxDepth << std::endl;}
 WebCrawler::~WebCrawler() {std::cout << "WebCrawler destroyed " << std::endl;}
@@ -15,13 +16,32 @@ void WebCrawler::crawl(const std::string& startUrl) {
     std::cout << "\n=== START CRAWLING ===" << std::endl;
     std::cout << "starting URL: " << startUrl << std::endl;
 
+    time_t now = time(0);
+    tm* ltm = localtime(&now);
+
+    std::ostringstream filename;
+    filename << "outputs/crawl_"
+             << std::put_time(ltm, "%Y%m%d_%H%M%S")
+             << ".txt";
+
+    if (!outputGen.open(filename.str())) {
+        std::cerr << "Error creating the output file" << std::endl;
+        return;
+    }
+
+    outputGen.writeHeader(startUrl, maxDepth);
+
     allowedDomain = urlNormalizer.getDomain(startUrl);
     std::cout << "allowd domain: " << allowedDomain << std::endl << std::endl;
 
     crawlRecursive(startUrl, 0);
 
+    outputGen.writeFooter(visitedUrls);
+    outputGen.close();
+
     std::cout << "\n=== CRAWLING ENDED ===" << std::endl;
     std::cout << "visited urls: " << visitedUrls.size() << std::endl;
+    std::cout << "Output saved in: " << filename.str() << std::endl;
 }
 
 void WebCrawler::crawlRecursive(const std::string& url, int depth) {

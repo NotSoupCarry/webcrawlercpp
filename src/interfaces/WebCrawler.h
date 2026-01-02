@@ -12,12 +12,14 @@
 #include "HttpClient.h"
 #include "HtmlParser.h"
 #include "UrlNormalizer.h"
+#include "OutputGen.h"
 
 class WebCrawler {
 private:
     HttpClient httpClient;
     HtmlParser htmlParser;
     UrlNormalizer urlNormalizer;
+    OutputGen outputGen;
 
     std::set<std::string> visitedUrls;
     std::queue<std::string> urlsToVisit;

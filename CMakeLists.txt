@@ -8,6 +8,7 @@ add_executable(webcrawlercpp src/starter/main.cpp
         src/impl/HtmlParser.cpp
         src/impl/UrlNormalizer.cpp
         src/impl/WebCrawler.cpp
+        src/impl/OutputGen.cpp
 )
 
 if(WIN32)
