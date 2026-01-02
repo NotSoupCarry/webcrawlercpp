@@ -82,10 +82,10 @@ void WebCrawler::crawlRecursive(const std::string& url, int depth) {
             crawlRecursive(normalizedUrl, depth + 1);
             crawledLinks++;
 
-            if (crawledLinks >= 5) {
-                std::cout << indent << "  -> Link limit of 5" << std::endl;
-                break;
-            }
+            // if (crawledLinks >= 5) {
+            //     std::cout << indent << "  -> Link limit of 5" << std::endl;
+            //     break;
+            // }
         }
     }
 }
