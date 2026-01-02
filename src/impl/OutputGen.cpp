@@ -66,7 +66,7 @@ void OutputGen::writeHeader(const std::string& startUrl, int maxDepth, int maxLi
     oss << std::put_time(ltm, "%Y/%m/%d %H:%M:%S");
 
     writeLine("========================================");
-    writeLine("       WEB CRAWLER - CRAWLING LOG       ");
+    writeLine("             CRAWLING LOG               ");
     writeLine("========================================");
     writeLine("");
     writeLine("Date/Time: " + oss.str());
@@ -97,9 +97,6 @@ void OutputGen::writeFooter(const std::set<std::string>& visitedUrls) {
     writeLine("");
     writeLine("Total pages visited: " + std::to_string(visitedUrls.size()));
     writeLine("");
-    writeLine("========================================");
-    writeLine("           VISITED URLS                 ");
-    writeLine("========================================");
     writeLine("");
 
     int count = 1;
