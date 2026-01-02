@@ -14,11 +14,12 @@ int main() {
     // cout<< "enter the starting url: "; cin >> startUrl;
 
     int maxDepth = 2;
+    int maxLinks = 2;
 
     cout << "  URL: " << startUrl << endl;
     cout << "  Max Depth: " << maxDepth << endl << endl;
 
-    WebCrawler crawler(maxDepth);
+    WebCrawler crawler(maxDepth, maxLinks);
     crawler.crawl(startUrl);
 
     cout << "\n=== VISITED URL  ===" << endl << endl;

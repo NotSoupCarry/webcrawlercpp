@@ -26,6 +26,7 @@ private:
 
     std::string allowedDomain;
     int maxDepth;
+    int maxLinksPerPage;
     int currentDepth;
 
     bool shouldCrawl(const std::string &url);
@@ -33,7 +34,7 @@ private:
     void crawlRecursive(const std::string &url, int depth);
 
 public:
-    WebCrawler(int maxDepth = 2);
+    WebCrawler(int maxDepth, int maxLinksPerPage);
     ~WebCrawler();
 
     void crawl(const std::string &startUrl);

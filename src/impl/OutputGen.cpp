@@ -26,7 +26,7 @@ bool OutputGen::open(const std::string& filename) {
     struct stat info;
     if (stat("outputs", &info) != 0) {
         _mkdir("outputs");  // Windows
-        // mkdir("outputs"); //// Linux
+        // mkdir("outputs"); // Linux
         std::cout << "folder 'outputs' created" << std::endl;
     }
 
@@ -56,7 +56,7 @@ void OutputGen::writeLine(const std::string& line) {
     }
 }
 
-void OutputGen::writeHeader(const std::string& startUrl, int maxDepth) {
+void OutputGen::writeHeader(const std::string& startUrl, int maxDepth, int maxLinksPerPage) {
     if (!isOpen) return;
 
     time_t now = time(0);
@@ -72,6 +72,7 @@ void OutputGen::writeHeader(const std::string& startUrl, int maxDepth) {
     writeLine("Date/Time: " + oss.str());
     writeLine("Start URL: " + startUrl);
     writeLine("Max Depth: " + std::to_string(maxDepth));
+    writeLine("Limit of Links per page: " + std::to_string(maxLinksPerPage));
     writeLine("");
     writeLine("========================================");
     writeLine("");

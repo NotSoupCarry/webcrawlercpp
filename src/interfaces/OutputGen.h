@@ -7,7 +7,6 @@
 
 #include <string>
 #include <fstream>
-#include <vector>
 #include <set>
 
 class OutputGen {
@@ -23,7 +22,7 @@ public:
     bool open(const std::string& filename);
     void close();
     void writeLine(const std::string& text);
-    void writeHeader(const std::string& startUrl, int maxDepth);
+    void writeHeader(const std::string& startUrl, int maxDepth, int maxLinksPerPage);
     void writeCrawlInfo(const std::string& url, int depth, int linksFound);
     void writeFooter(const std::set<std::string>& visitedUrls);
 };

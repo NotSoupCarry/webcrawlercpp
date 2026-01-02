@@ -9,7 +9,13 @@
 #include <sstream>
 #include <iomanip>
 
-WebCrawler::WebCrawler(int maxDepth) : maxDepth(maxDepth), currentDepth(0) {std::cout << "WebCrawler created, Max depth: " << maxDepth << std::endl;}
+WebCrawler::WebCrawler(int maxDepth, int maxLinksPerPage)
+    : maxDepth(maxDepth), maxLinksPerPage(maxLinksPerPage), currentDepth(0) {
+    std::cout << "WebCrawler created" << std::endl;
+    std::cout << "  Max depth: " << maxDepth << std::endl;
+    std::cout << "  Max links per page: " << maxLinksPerPage << std::endl;
+}
+
 WebCrawler::~WebCrawler() {std::cout << "WebCrawler destroyed " << std::endl;}
 
 void WebCrawler::crawl(const std::string& startUrl) {
@@ -29,7 +35,7 @@ void WebCrawler::crawl(const std::string& startUrl) {
         return;
     }
 
-    outputGen.writeHeader(startUrl, maxDepth);
+    outputGen.writeHeader(startUrl, maxDepth, maxLinksPerPage);
 
     allowedDomain = urlNormalizer.getDomain(startUrl);
     std::cout << "allowd domain: " << allowedDomain << std::endl << std::endl;
@@ -82,8 +88,8 @@ void WebCrawler::crawlRecursive(const std::string& url, int depth) {
             crawlRecursive(normalizedUrl, depth + 1);
             crawledLinks++;
 
-            if (crawledLinks >= 50) {
-                std::cout << indent << "  -> Link limit of 50" << std::endl;
+            if (crawledLinks >= maxLinksPerPage) {
+                std::cout << indent << "  -> Link limit of "<< maxLinksPerPage << std::endl;
                 break;
             }
         }
