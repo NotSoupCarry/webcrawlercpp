@@ -46,7 +46,7 @@ size_t HtmlParser::findNextAnchor(const std::string& html, size_t startPos) {
         if (pos + 1 < html.size()) {
             char next = std::tolower(html[pos + 1]);
 
-            if (next == 'a') {
+            if (next == 'a' || next == 'link') {
                 if (pos + 2 < html.size()) {
                     char after = html[pos + 2];
                     if (after == ' ' || after == '\t' || after == '\n' || after == '>') {
