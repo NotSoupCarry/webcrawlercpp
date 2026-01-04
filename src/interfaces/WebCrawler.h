@@ -25,10 +25,6 @@ private:
     std::set<std::string> visitedUrls;
     std::queue<std::string> urlsToVisit;
 
-    std::function<void(const std::string&)> logCallback;
-    std::function<void(int, int)> progressCallback;
-    std::function<bool()> shouldStopCallback;
-
     std::string allowedDomain;
     int maxDepth;
     int maxLinksPerPage;

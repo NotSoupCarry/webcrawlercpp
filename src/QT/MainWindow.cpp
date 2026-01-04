@@ -7,6 +7,7 @@
 #include <QHBoxLayout>
 #include <QGroupBox>
 #include <QMessageBox>
+#include "../interfaces/WebCrawler.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), crawlerThread(nullptr) {
@@ -181,12 +182,15 @@ void CrawlerThread::run() {
     emit logMessage("Max Links: " + QString::number(maxLinks));
     emit logMessage("");
 
+    WebCrawler crawler(maxDepth, maxLinks);
+    crawler.crawl(startUrl.toStdString());
+
     // TODO
-    for (int i = 0; i < 10 && !shouldStop; i++) {
-        emit logMessage(QString("[Depth 0] Crawling page %1...").arg(i + 1));
-        emit progressUpdate(i + 1, 10);
-        QThread::msleep(500);
-    }
+    // for (int i = 0; i < 10 && !shouldStop; i++) {
+    //     emit logMessage(QString("[Depth 0] Crawling page %1...").arg(i + 1));
+    //     emit progressUpdate(i + 1, 10);
+    //     QThread::msleep(500);
+    // }
 
     emit finished();
 }
