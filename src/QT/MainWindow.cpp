@@ -30,19 +30,19 @@ void MainWindow::setupUI() {
     setCentralWidget(centralWidget);
 
     // Input URL
-    urlInput = new QLineEdit("https://example.com");
+    urlInput = new QLineEdit("https://youtube.com");
     urlInput->setPlaceholderText("Enter URL to crawl...");
 
     // Depth spinner
     depthSpinBox = new QSpinBox();
-    depthSpinBox->setRange(1, 5);
-    depthSpinBox->setValue(2);
+    depthSpinBox->setRange(1, 30);
+    depthSpinBox->setValue(10);
     depthSpinBox->setPrefix("Depth: ");
 
     // Links per page spinner
     linksSpinBox = new QSpinBox();
     linksSpinBox->setRange(1, 100);
-    linksSpinBox->setValue(50);
+    linksSpinBox->setValue(5);
     linksSpinBox->setPrefix("Links/Page: ");
 
     // Buttons
